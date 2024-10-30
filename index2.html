@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Imágenes y Botones</title>
+    <style>
+        .popup {
+    display: none; /* Ocultar por defecto */
+    position: fixed; /* Mantener en posición fija */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    justify-content: center; /* Centrar contenido */
+    align-items: center; /* Centrar contenido */
+}
+
+.popup-content {
+    background-color: white; /* Fondo blanco */
+    padding: 20px;
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Centrar texto */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+.close {
+    color: #aaa; /* Color del botón de cerrar */
+    float: right; /* Alinear a la derecha */
+    font-size: 28px; /* Tamaño del icono */
+    font-weight: bold; /* Negrita */
+    cursor: pointer; /* Cambiar cursor al pasar */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Color al pasar el mouse */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Cambiar cursor al pasar */
+}
+
+        /* Estilos para el contenedor principal */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        /* Contenedor de las imágenes */
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Estilos para cada imagen y sus botones */
+        .image-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-item img {
+            width: 500px;
+            height: 600px;
+            border-radius: 10%;
+            margin-bottom: 10px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .button-group button {
+            width: 300px;
+            height: 40px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        /* Sección de botones al lado derecho */
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .right-section button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+       
+        <div class="image-grid">
+            <div class="image-item">
+                <img src="contanedor1.jpg" alt="Imagen 1">
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="showPopup('Este dispositivo controla el llenado de contendor.')">Sensor de llenado</button>
+                    <button type="button" class="btn btn-secondary" onclick="showPopup('Este sensor trasnmite una señal al receptor para qu el sensor de llenado funcione.')">Sensor de control de llenado1</button>
+                    <button type="button" class="btn btn-secondary" onclick="showPopup('Este sensor recibe la señal de trasmisor el cual hace funcionar el sensor de llenado.')">Sensor de control de llenado2</button>
+                </div>
+            </div>
+        
+            <!-- Pop-Up Minimalista -->
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup()">&times;</span>
+                    <p id="popup-message">Este es un mensaje de información.</p> <!-- Mensaje dinámico -->
+                </div>
+            </div>
+            
+            
+            <div class="image-item">
+                <img src="contanedor2.jpg" alt="Imagen 2">
+                <div class="button-group">
+                   
+                </div>
+            </div>
+            <div class="image-item">
+                <img src="conexiones.jpg" alt="Imagen 3">
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="showPopup('Conexion para el funcionamiento del sensor de llenado.')">Conexion para el sensor de llenado</button>
+                    <button type="button" class="btn btn-secondary" onclick="showPopup('Conexion Sensor para el control de llenado parte frontal')">Sensor para el control de llenado parte frontal</button>
+                    <button type="button" class="btn btn-secondary" onclick="showPopup('Conexion Sensor para el control de llenado parte lateral')">Sensor para el control de llenado parte lateral</button>
+                    <button type="button" class="btn btn-secondary"  onclick="showPopup('Conexion Sensor de temperatura ')">Sensor de temperatura</button>
+                    
+                </div>
+            </div>
+            <div class="image-item">
+                <img src="sistemal.jpg" alt="Imagen 4">
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="showPopup('Este boton funciona como reseteo para su conexion a intenet ,quizas el usuario necesite cambiar de proveedor de intenet y quiere volver a colocar su contraseña de red.')">reset</button>
+                    <button type="button" class="btn btn-secondary"  onclick="showPopup('La luz led de color azul nos indica cuando el disporivo se conecto a internet.')">wifi</button>
+                    <button type="button" class="btn btn-secondary"  onclick="showPopup('La luz led de color amarillo nos indica que la temperatura es mayor a 70 grados.')">Temperatura</button>
+                    <button type="button" class="btn btn-secondary"  onclick="showPopup('La luz led de color rojo nos indica que el contendor se lleno.')">lleno</button>
+                    <button type="button" class="btn btn-secondary"  onclick="showPopup('La luz led de color verde nos indica que el contendor esta disponible.')">Disponible</button>
+                    <button type="button" class="btn btn-secondary"  onclick="showPopup('Este micro controlador controla el sensor de llenos por medio de modulo receptor ky-022 , cuando estes dispositivo deja de recibir señal el sensor de llenado se apaga para evitar falsas mediciones. cuando el usuario abre el contendor')">Micro controlador 2</button>
+                    <button type="button" class="btn btn-secondary"  onclick="showPopup('Este micro controlador controla al dispositivo ky-005, activa al trasmisor para que el receptor procese la señal y hace funcionar el sensor de llenado y tambien controla el sensor de temperatura.')">Micro controlador 1</button>
+                    <button type="button" class="btn btn-secondary"  onclick="showPopup('Este micro controlador , controla la conexion wifi y el sensor de humedad el cual cuando se detecte abono liquido sea notificado al usuario.')">Micro controlador 3</button>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de botones a la derecha -->
+        
+        <div class="right-section">
+            <h1>En los siguientes enlaces encontrara el codigo funte para micro controlador</h1>
+            <button type="button" class="btn btn-primary">Micro 1</button>
+            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn btn-primary">Primary</button>
+            
+        </div>
+    </div>
+    <script>
+    
+        // Funciones JavaScript aquí
+        function showPopup(message) {
+            document.getElementById("popup-message").innerText = message; // Cambia el mensaje
+            document.getElementById("popup").style.display = "flex"; // Mostrar el pop-up
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none"; // Ocultar el pop-up
+        }
+    
+    </script>
+</body>
+
+</html>

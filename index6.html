@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Carousel Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+    <style>
+  .popup {
+    display: none; /* Ocultar por defecto */
+    position: fixed; /* Mantener en posición fija */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    justify-content: center; /* Centrar contenido */
+    align-items: center; /* Centrar contenido */
+}
+
+.popup-content {
+    background-color: white; /* Fondo blanco */
+    padding: 20px;
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Centrar texto */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+.close {
+    color: #aaa; /* Color del botón de cerrar */
+    float: right; /* Alinear a la derecha */
+    font-size: 28px; /* Tamaño del icono */
+    font-weight: bold; /* Negrita */
+    cursor: pointer; /* Cambiar cursor al pasar */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Color al pasar el mouse */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Cambiar cursor al pasar */
+}
+
+
+    </style>
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+  <body>
+    
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <hr class="featurette-divider">
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4">
+        <img src="micro1.jpg" alt="Descripción de la imagen" class="bd-placeholder-img rounded-circle" width="140" height="140">
+
+
+        <h2>Micro Controlador 1</h2>
+        <p>Codigo repositorio Git.</p>
+        <p><a class="btn btn-secondary" href="#">Descargar codigo</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img src="micro2.jpg" alt="Descripción de la imagen" class="bd-placeholder-img rounded-circle" width="140" height="140">
+
+        <h2>Micro Controlador 2</h2>
+        <p>Codigo repositorio Git.</p>
+        <p><a class="btn btn-secondary" href="#">Descargar codigo</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img src="micro3.jpg" alt="Descripción de la imagen" class="bd-placeholder-img rounded-circle" width="140" height="140">
+
+        <h2>Micro Controlador 3</h2>
+        <p>Codigo repositorio Git.</p>
+        <p><a class="btn btn-secondary" href="#">Descargar codigo</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      
+      <div class="col-md-7">
+        <button type="button" class="btn btn-secondary" onclick="showPopup('Este dispositivo controla el llenado de contendor.')">Sensor de llenado</button>
+        <button type="button" class="btn btn-secondary" onclick="showPopup('Este sensor trasnmite una señal al receptor para qu el sensor de llenado funcione.')">Sensor de control de llenado1</button>
+        <button type="button" class="btn btn-secondary" onclick="showPopup('Este sensor recibe la señal de trasmisor el cual hace funcionar el sensor de llenado.')">Sensor de control de llenado2</button>
+        <h2 class="featurette-heading">Sensores. <span class="text-muted">.</span></h2>
+        <p class="lead">El conetnedor posee 4 sensores que Acontinuacion se le explicada cada uno de ellos.</p>
+      </div>
+      <div class="col-md-5">
+        <img src="contanedor1.jpg" class="featurette-image img-fluid mx-auto" width="500" height="500" alt="Descripción de la imagen">
+    </div>
+    </div>
+    <!-- Pop-Up Minimalista -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+          <span class="close" onclick="closePopup()">&times;</span>
+          <p id="popup-message">Este es un mensaje de información.</p> <!-- Mensaje dinámico -->
+      </div>
+  </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Contenedor  <span class="text-muted">Principal.</span></h2>
+        <p class="lead">Compostador automatico</p>
+      </div>
+      <div class="col-md-5">
+        <img src="contanedor2.jpg" class="featurette-image img-fluid mx-auto" width="500" height="500" alt="Descripción de la imagen">
+    </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <button type="button" class="btn btn-secondary" onclick="showPopup('Conexion para el funcionamiento del sensor de llenado.')">Conexion para el sensor de llenado</button>
+        <button type="button" class="btn btn-secondary" onclick="showPopup('Conexion Sensor para el control de llenado parte frontal')">Sensor para el control de llenado parte frontal</button>
+        <button type="button" class="btn btn-secondary" onclick="showPopup('Conexion Sensor para el control de llenado parte lateral')">Sensor para el control de llenado parte lateral</button>
+        <button type="button" class="btn btn-secondary"  onclick="showPopup('Conexion Sensor de temperatura ')">Sensor de temperatura</button>
+        <h2 class="featurette-heading">Sistema  <span class="text-muted">De conexiones.</span></h2>
+        <p class="lead">La placa tracera del contendor posee 4 conexiones , conexiones para el sensor de llenado , temperatura, sensor transmisor y sensor receptor.</p>
+      </div>
+      <div class="col-md-5">
+        <img src="conexiones.jpg" class="featurette-image img-fluid mx-auto" width="500" height="500" alt="Descripción de la imagen">
+    </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <button type="button" class="btn btn-secondary" onclick="showPopup('Este boton funciona como reseteo para su conexion a intenet ,quizas el usuario necesite cambiar de proveedor de intenet y quiere volver a colocar su contraseña de red.')">reset</button>
+        <button type="button" class="btn btn-secondary"  onclick="showPopup('La luz led de color azul nos indica cuando el disporivo se conecto a internet.')">wifi</button>
+        <button type="button" class="btn btn-secondary"  onclick="showPopup('La luz led de color amarillo nos indica que la temperatura es mayor a 70 grados.')">Temperatura</button>
+        <button type="button" class="btn btn-secondary"  onclick="showPopup('La luz led de color rojo nos indica que el contendor se lleno.')">lleno</button>
+        <button type="button" class="btn btn-secondary"  onclick="showPopup('La luz led de color verde nos indica que el contendor esta disponible.')">Disponible</button>
+        <button type="button" class="btn btn-secondary"  onclick="showPopup('Este micro controlador controla el sensor de llenos por medio de modulo receptor ky-022 , cuando estes dispositivo deja de recibir señal el sensor de llenado se apaga para evitar falsas mediciones. cuando el usuario abre el contendor')">Micro controlador 2</button>
+        <button type="button" class="btn btn-secondary"  onclick="showPopup('Este micro controlador controla al dispositivo ky-005, activa al trasmisor para que el receptor procese la señal y hace funcionar el sensor de llenado y tambien controla el sensor de temperatura.')">Micro controlador 1</button>
+        <button type="button" class="btn btn-secondary"  onclick="showPopup('Este micro controlador , controla la conexion wifi y el sensor de humedad el cual cuando se detecte abono liquido sea notificado al usuario.')">Micro controlador 3</button>
+        <h2 class="featurette-heading">Sistema  <span class="text-muted">De control.</span></h2>
+        <p class="lead">El sistema de control posee 3 micro controladores el cual dos de ellos trabajan de manera paralela y un ultimo micro controlador que trabaja individual,.</p>
+      </div>
+      <div class="col-md-5">
+        <img src="sistemal.jpg" class="featurette-image img-fluid mx-auto" width="500" height="500" alt="Descripción de la imagen">
+    </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  </footer>
+</main>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    
+      // Funciones JavaScript aquí
+      function showPopup(message) {
+          document.getElementById("popup-message").innerText = message; // Cambia el mensaje
+          document.getElementById("popup").style.display = "flex"; // Mostrar el pop-up
+      }
+
+      function closePopup() {
+          document.getElementById("popup").style.display = "none"; // Ocultar el pop-up
+      }
+  
+  </script> 
+  </body>
+</html>
